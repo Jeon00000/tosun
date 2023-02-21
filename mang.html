@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>토순이의 집 찾기 게임</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+        .tosun{
+            height: 120px;
+            position: fixed;
+            background: url(../images/stand.png) no-repeat;
+            transform: rotateY(180deg);
+        }
+       
+        
+
+        .move{
+            height: 120px;
+            transform: rotateY(180deg);
+            position: absolute;
+            display: none;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){// 38 위  39 오른쪽 40 아래 37 왼쪽
+            $(document).keydown(function(e){
+                switch(e.keyCode){
+                    case 37:
+                        // $('.tosun').hide();
+                        $('.move').show();
+                        $('.move').animate({left: '-=100px'},500, function(){
+                        });
+                    break;
+                    case 38:
+                    // $('.tosun').hide();
+                        $('.move').show();
+                        $('.move').animate({top: '-=100px'},500, function(){
+                        });
+                    break;
+                    case 39:
+                    // $('.tosun').hide();
+                        $('.move').show();
+                        $('.move').animate({left: '+=100px'},500, function(){
+                        });
+                    break;
+                    case 40:
+                    // $('.tosun').hide();
+                        $('.move').show();
+                        $('.move').stop().animate({top: '+=100px'},500, function(){
+                            $('.move').hide(function(){
+                                $('.tosun').show();
+                            });
+                        });
+                    break;
+                }
+            })
+
+        });//jQuery
+    </script>
+</head>
+<body>
+    <div class="tosun">
+    </div>
+    <div><img src="../images/move.gif" class="move"></div>
+</body>
+</html>

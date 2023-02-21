@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tosun-mini game</title>
+    <style>
+        body{
+            overflow:hidden;
+        }
+
+        .tosun{
+            height: 120px;
+            position: relative;
+            background: url(/stand.png) no-repeat;
+            transform: rotateY(180deg);
+        }
+    </style>
+    <script src="/tosun/jquery-1.12.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(document).keydown(function(e){
+            switch(e.keydown){
+                case 37: //좌
+                    // $('.tosun').show();
+                    $('tosun').stop().animate({left: '-=100px'}, 500,);
+                break;
+                case 38: //상
+                    // $('.tosun').show();
+                    $('tosun').stop().animate({top: '-=100px'}, 500,);
+                break;
+                case 39: //우
+                    // $('.tosun').show();
+                    $('tosun').stop().animate({left: '+=100px'}, 500,);
+                break;
+                case 40: //하
+                   // $('.tosun').show();
+                    $('tosun').stop().animate({top: '+=100px'}, 500,);
+                break;
+
+
+
+
+                }
+            });
+        });//jQuery
+
+    </script>
+</head>
+<body>
+    <div class="tosun"></div>
+</body>
+</html>
