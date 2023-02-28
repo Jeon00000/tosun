@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RedPanda beta</title>
     <style>
+        /*초기 화면 스타트 버튼*/
+        /* .start{
+            background: url(/images/logo.png) no-repeat;
+            background-size: cover;
+            border: 1px solid black;
+            width: 700px;
+            height: 700px;
+            position: absolute;
+            z-index: 99;
+        }
+
+        button{
+            
+            position: absolute;
+            top: 78%;
+            left: 41%;
+            font-size: 30px;
+            background-image: linear-gradient(greenyellow, chartreuse, green);
+            border-radius: 10px;
+            padding: 8px 30px;
+        }
+
+        button:hover{
+            background-image: linear-gradient( #00CC00, #33FF33);
+            box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.3);
+        } */
+        /*레서 시작점*/
         body{
             position: flex;
             width: 700px;
@@ -17,30 +44,39 @@
             width: 700px;
             height: 700px;
             border: 1px solid black;
-            background-color: lightpink;
+            background-color:  rgb(165, 212, 93);
             overflow-y: hidden;
             overflow-x: hidden;
     
-            
+        
             
         }
-        .tosun img{
+        .rp_stand img{
             overflow-y: hidden;
-            overflow-x: hidden;
-            
-            
+            overflow-x: hidden;  
         }
 
-        .tosun img{
+        .rp_stand img{
             position: absolute;
+            display: block;
             height: 75px;
             top: 10px;
             left: 10px;
-            transform: rotateY(180deg);
-            
+            /* transform: rotateY(180deg); */
+        }
+        .rp_move img, .rp_move_side img,
+        .rp_stand_back img, .rp_stand_side img{
+            position: absolute;
+            display: none;
+            height: 75px;
+            top: 10px;
+            left: 10px;
+            /* transform: rotateY(180deg); */
         }
 
-        .bush1 img{
+
+
+        /* .bush1 img{
             position: absolute;
             width: 150px;
             top: 10px;
@@ -81,9 +117,9 @@
             top: 480px;
             left: 400px;
             z-index: 2;
-        }
+        } */
 
-        .house img{
+        .home img{
             position: absolute;
             width: 106px;
             height: 106px;
@@ -97,7 +133,11 @@
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        
+        $(function(){
+            $('button').click(function(){
+
+            $('.start').css("display","none")})
+        });
 
         var keyValue = {};
 
@@ -105,22 +145,22 @@
 
             if(keyValue[37] == 'on'){
                 console.log("go left");
-                $('.tosun').css("left", "-=10px");
+                $('.rp').css("left", "-=10px");
             }
 
             if(keyValue[38] == 'on'){
                 console.log("go up");
-                $('.tosun').css("top", "-=10px");
+                $('.rp').css("top", "-=10px");
             }
 
             if(keyValue[39] == 'on'){
                 console.log("go right");
-                $('.tosun').css("left", "+=10px");
+                $('.rp').css("left", "+=10px");
             }
 
             if(keyValue[40] == 'on'){
                 console.log("go bottom");
-                $('.tosun').css("top", "+=10px");
+                $('.rp').css("top", "+=10px");
             }
 
         },25);
@@ -134,7 +174,7 @@
             })
 
             
-           
+            
     
         });
 
@@ -142,16 +182,25 @@
     </script>
 </head>
 <body>
-    <div class = background>
-        <div class="tosun"><img src = "/tosun/stand.png" class="tosun"></div>
+    <div class="main">
+        <div class="start"><button>시작</button></div>
+    </div>
 
-        <div class="bush1"><img src="/tosun/bush.png"></div>
-        <div class="bush2"><img src="/tosun/bush.png"></div>
-        <div class="bush3"><img src="/tosun/bush.png"></div>
-        <div class="bush4"><img src="/tosun/bush.png"></div>
-        <div class="bush5"><img src="/tosun/bush.png"></div>
-        <div class="bush6"><img src="/tosun/bush.png"></div>
-        <div class="house"><img src="/house.png"></div>
+    <div class = background>
+        <div class="rp_stand"><img src = "/images/rp_stand.png" class="rp"></div>
+        <div class="rp_stand_side"><img src = "/images/rp_stand_side.png" class="rp"></div>
+        <div class="rp_stand_back"><img src = "/images/rp_stand_back.png" class="rp"></div>
+        <div class="rp_move"><img src = "/images/rp_move.gif" class="rp"></div>
+        <div class="rp_move_side"><img src = "/images/rp_move_side.gif" class="rp"></div>
+        
+
+        <!-- <div class="bush1"><img src="/images/bush.png"></div>
+        <div class="bush2"><img src="/images/bush.png"></div>
+        <div class="bush3"><img src="/images/bush.png"></div>
+        <div class="bush4"><img src="/images/bush.png"></div>
+        <div class="bush5"><img src="/images/bush.png"></div>
+        <div class="bush6"><img src="/images/bush.png"></div> -->
+        <div class="home"><img src="/images/home.png"></div>
     </div>
 </body>
 </html>

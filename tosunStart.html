@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            background-color: aquamarine;
+            border: 1px solid black;
+            width: 500px;
+            height: 500px;
+            position: relative;
+            
+        }
+
+        .start{
+            background-color: white;
+            border: 1px solid black;
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            /* z-index: 1; */
+        }
+
+        button{
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            font-size: 30px;
+            background-color: pink;
+            border-radius: 10px;
+            padding: 10px 20px;
+        }
+
+        button:hover{
+            background-image: linear-gradient(to right, #ed6ea0, #ec8c69);
+            box-shadow: 0 0px 15px 0 rgba(236, 116, 149, 0.75);
+        }
+    </style>
+    <script src="/tosun/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            $('button').click(function(){
+
+            $('.start').css("display","none")})
+        });//jquery
+
+
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="start"><button>시작</button></div>
+    </div>
+
+</body>
+</html>
